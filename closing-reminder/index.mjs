@@ -20,15 +20,15 @@ export const handler = async (event) => {
     headers: {
       accept: "application/json",
       "content-type": "application/x-www-form-urlencoded",
-      "x-chatworktoken": CHATWORK_API_TOKEN
+      "x-chatworktoken": CHATWORK_API_TOKEN,
     },
-    body: encodedParams
+    body: encodedParams,
   };
 
   const res = await fetch(url, options);
-  const json = await res.json()
+  const json = await res.json();
   console.log(json);
-}
+};
 
 // ローカル実行用
 // handler();
