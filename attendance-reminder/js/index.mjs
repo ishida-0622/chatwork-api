@@ -6,15 +6,13 @@ dotenv.config();
 
 const CHATWORK_API_TOKEN = process.env.CHATWORK_API_TOKEN;
 const ROOM_ID = process.env.CHATWORK_ROOM_ID;
-const TO_USER_IDS = (process.env.CHATWORK_TO_USER_IDS ?? "").split(",");
 
 export const handler = async (event) => {
   const encodedParams = new URLSearchParams();
-  const mentions = TO_USER_IDS.map((id) => `[To:${id}]`).join("");
 
   encodedParams.set(
     "body",
-    `${mentions}\n出勤押した？（このメッセージは自動送信です）`
+    "[toall]\n出勤押した？（このメッセージは自動送信です）"
   );
   encodedParams.set("self_unread", "0");
 
